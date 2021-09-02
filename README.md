@@ -88,4 +88,5 @@ Just in case, I'm not responsible for any damages caused by the user.
 DDoS-ing and DoS-ing anyone without their consent IS A CRIME
 If you do indeed have the former's consent, it's called "Network stress testing"
 
-
+This program is made for educational purposes only.
+Use at your own risk.
