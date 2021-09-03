@@ -72,9 +72,6 @@ This is the continuation, or port to python 3.9, of BAT-DDoS-Nzen2, which is arc
 
 https://github.com/Gteditor99/BAT-DDOS-Nzen2
 (RIP, my first github repo...)
-
-Nzen2-DDoS Provides MORE packets than ever, with 24(!!!) bots stacking every second,
-With an ADDITIONAL 40 bots planned to be added in the next update, (so 64).
 Attempting to DoS servers, or routers does nothing, but DoS-ing a home-hosted minecraft server,
 when it is full might kick everyone out. 
 
