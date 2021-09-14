@@ -66,19 +66,10 @@ An Distributed Denial Of Service (DDoS) / Network stress test program, made with
 
 Primarily a network stress test program, you can push your router to its knees.
 
-"The longer you run, the more packets sent"
-
 This is the continuation, or port to python 3.9, of BAT-DDoS-Nzen2, which is archived here:
 
 https://github.com/Gteditor99/BAT-DDOS-Nzen2
-(RIP, my first github repo...)
-Attempting to DoS servers, or routers does nothing, but DoS-ing a home-hosted minecraft server,
-when it is full might kick everyone out. 
-
-
-
-
-
+(RIP)
 
 
 Just in case, I'm not responsible for any damages caused by the user.
