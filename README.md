@@ -1,6 +1,6 @@
 # Nzen2-DDoSpy
-A Distributed Denial Of Service (DDoS) / Network stress test program, made with Python 3.10.1
--------------------------------------------------------------------------------------------
+A Potentially Distributable Denial of Service Attack / Network stresser made with Python 3.10.1
+------------------------------------------------------------------------------------------------
 
 
 
@@ -62,19 +62,26 @@ A Distributed Denial Of Service (DDoS) / Network stress test program, made with 
 
 
 -------------------------------------------------------------------------------------------
-
-
-Primarily a network stress test program, you can push your router to its knees.
-
 This is the continuation, or port to python 3.9, of BAT-DDoS-Nzen2, which is archived here:
 
 https://github.com/Gteditor99/BAT-DDOS-Nzen2
 (RIP)
 
+*Use with caution, and with Educational purposes only*
 
-Just in case, I'm not responsible for any damages caused by the user.
-DDoS-ing and DoS-ing anyone without their consent IS A CRIME
-If you do indeed have the former's consent, it's called "Network stress testing"
+The "Computer Fraud and Abuse Act" (1986)
+prohibits intentionally impairing the operation of a computer,
+or prevent or hinder access to a program/data on a computer,
+unless you are authorised to do so.
 
-This program is made for educational purposes only.
-Use at your own risk.
+Common sense dictates
+With authorization, 
+(Such as on your own privately owned devices,)
+It can be deemed legal, 
+(as it is assumed that no user is prohibited 
+from using their devices on their own accords)
+and the owner of said devices will not recive 
+punishments against their own property that they have purposely 
+'denied of service(s)', as they have been granted authorization by themselves 
+from the moment said owner commenced the 'denial'. 
+
