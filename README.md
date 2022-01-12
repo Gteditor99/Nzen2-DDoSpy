@@ -75,9 +75,9 @@ or prevent or hinder access to a program/data on a computer,
 unless you are authorised to do so.
 
 Common sense dictates
-With authorization, 
+with authorization, 
 (Such as on your own privately owned devices,)
-It can be deemed legal, 
+it can be deemed legal, 
 (as it is assumed that no user is prohibited 
 from using their devices on their own accords)
 and the owner of said devices will not recive 
