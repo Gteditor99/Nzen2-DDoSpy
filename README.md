@@ -85,3 +85,4 @@ punishments against their own property that they have purposely
 'denied of service(s)', as they have been granted authorization by themselves 
 from the moment said owner commenced the 'denial'. 
 
+
