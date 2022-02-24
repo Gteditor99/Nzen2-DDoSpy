@@ -9,7 +9,7 @@ from os import listdir
 os.system('pip3 install scapy')
 from scapy.all import *
 import threading
-version = 'v Alpha 0.3'
+version = 'v Alpha 0.4'
 def get_ip_address():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect(("8.8.8.8", 80))
@@ -59,7 +59,7 @@ logoascii = '''
              '''
 
 
-# Functioan for Main Screen, (mainscr) for easy access.
+# Function for Main Screen, (mainscr) for easy access.
 def mainscr():
 
     os.system("cls")
