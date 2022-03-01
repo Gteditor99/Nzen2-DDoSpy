@@ -111,8 +111,8 @@ def attack():
         print(infoui)
 
 #infoui
-infoui = threading.Thread(target=attack)
-infoui.start()
+atk_thread = threading.Thread(target=attack)
+atk_thread.start()
 
 print('\n')
 print('[*] Attack started')
