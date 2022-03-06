@@ -69,6 +69,25 @@ https://github.com/Gteditor99/BAT-DDOS-Nzen2
 
 *Use with caution, and with Educational purposes only*
 
+
+0.5 Usage: 
+
+`ddos.py -s <target ip> <target port>` 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 The "Computer Fraud and Abuse Act" (1986)
 prohibits intentionally impairing the operation of a computer,
 or prevent or hinder access to a program/data on a computer,
